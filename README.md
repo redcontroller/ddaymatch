@@ -1,3 +1,29 @@
+# D-Day Match
+
+기념일 계산기 - 오늘이 무슨 날인지 알아?
+
+# 개발 일정
+
+1차 개발: 3월12일(수) ~ 3월16일(일)
+2차 개발: 미정 (날짜 조율 기능)
+
+# 주요 기능
+
+(1) 대표적인 커플 기념일을 계산할 수 있다.
+(2) 사용자 지정 기념일을 추가할 수 있다.
+(3) 연인과 데이트 날짜를 조율할 수 있는 편의 기능을 제공한다.
+
+# 기술 스택
+
+- React
+- TypeScript + SWC
+- CSS
+  - emotion
+- 앱 라우팅
+  - React Router
+- 상태관리
+  - zustand
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -28,15 +54,15 @@ export default tseslint.config({
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
 
 export default tseslint.config({
   plugins: {
@@ -50,5 +76,5 @@ export default tseslint.config({
     ...reactX.configs['recommended-typescript'].rules,
     ...reactDom.configs.recommended.rules,
   },
-})
+});
 ```
