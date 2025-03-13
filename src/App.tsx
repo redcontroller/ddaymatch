@@ -1,16 +1,42 @@
 import './App.css';
+import jsonData from './events.json';
+import { getDDay, text2Date, dday2Date } from './util/calc';
 
 function App() {
-  const today = new Date();
+  const date = new Date();
+  const year = date.getFullYear().toString();
+  const eventsData = jsonData;
 
-  const cntToday = Math.ceil((today.getTime() - new Date('2025-3-3').getTime()) / (1000 * 3600 * 24));
-  const balday = Math.ceil((today.getTime() - new Date('2025-2-14').getTime()) / (1000 * 3600 * 24));
+  // User input value
+  const firstDay = new Date('2025-3-3');
+  const birthday = new Date('1993-01-02');
 
-  const whiteday = Math.ceil((new Date('2025-3-14').getTime() - today.getTime()) / (1000 * 3600 * 24));
-  const hundredDay = Math.ceil((new Date('2025-6-11').getTime() - today.getTime()) / (1000 * 3600 * 24));
-  const loveBirthday = Math.ceil((new Date('2026-1-2').getTime() - today.getTime()) / (1000 * 3600 * 24));
-  const xmas = Math.ceil((new Date('2025-12-25').getTime() - today.getTime()) / (1000 * 3600 * 24));
-  const yearDay = Math.ceil((new Date('2026.3.3').getTime() - today.getTime()) / (1000 * 3600 * 24));
+  const hundredDay = dday2Date(firstDay, 100);
+  const nextBirthday = new Date(birthday);
+  const nextFirstDay = new Date(firstDay);
+  nextBirthday.setFullYear(new Date().getFullYear() + 1);
+  nextFirstDay.setFullYear(new Date().getFullYear() + 1);
+
+  // special day
+  const dFirstDay = getDDay(date, firstDay);
+  const dBirthday = getDDay(date, nextBirthday);
+  const dYear = getDDay(date, nextFirstDay);
+  const dHundred = getDDay(date, hundredDay);
+
+  // event day
+  const dValentine = getDDay(date, text2Date(year, eventsData.valentine.date));
+  const dWhiteDay = getDDay(date, text2Date(year, eventsData.white.date));
+  const dChristmas = getDDay(date, text2Date(year, eventsData.christmas.date));
+
+  const getDDayText = (dDay: number) => {
+    if (dDay > 0) {
+      return 'D-' + dDay.toString();
+    } else if (dDay < 0) {
+      return 'D+' + (dDay * -1).toString();
+    } else {
+      return 'D-Day';
+    }
+  };
 
   return (
     <>
@@ -23,14 +49,14 @@ function App() {
         <label htmlFor="firstDate">처음 만난 날</label>
         <input type="date" id="firstDate" />
       </form>
-      <div>오늘 일시: {today.toLocaleString()}</div>
-      <div>처음 만날 날로부터 오늘(2025.3.3): D+{cntToday}</div>
-      <div>화이트 데이(2025.3.14): D-{whiteday}</div>
-      <div>100일(2025.6.11): D-{hundredDay}</div>
-      <div>33번째 생일(2026.1.2): D-{loveBirthday}</div>
-      <div>크리스마스(2025.12.25): D-{xmas}</div>
-      <div>1주년(2026.3.3): D-{yearDay}</div>
-      <div>발렌타인 데이(2025.2.14): D-{balday}</div>
+      <div>오늘 일시: {date.toLocaleString()}</div>
+      <div>처음 만날 날로부터 오늘(2025.3.3): {getDDayText(dFirstDay)}</div>
+      <div>화이트 데이(2025.3.14): {getDDayText(dWhiteDay)}</div>
+      <div>100일(2025.6.11): {getDDayText(dHundred)}</div>
+      <div>33번째 생일(2026.1.2): {getDDayText(dBirthday)}</div>
+      <div>크리스마스(2025.12.25): {getDDayText(dChristmas)}</div>
+      <div>1주년(2026.3.3): D-{getDDayText(dYear)}</div>
+      <div>발렌타인 데이(2025.2.14): {getDDayText(dValentine)}</div>
     </>
   );
 }
