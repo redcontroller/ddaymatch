@@ -16,3 +16,13 @@ export const text2Date = (yearText: string, remainText?: string) => {
 export const dday2Date = (baseDate: Date, dday: number) => {
   return new Date(baseDate.getTime() + dday * 24 * 60 * 60 * 1000);
 };
+
+export const getDDayText = (dDay: number) => {
+  if (dDay > 0) {
+    return 'D-' + dDay.toString();
+  } else if (dDay < 0) {
+    return 'D+' + (dDay * -1).toString();
+  } else {
+    return 'D-Day';
+  }
+};
