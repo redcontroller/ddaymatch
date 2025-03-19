@@ -13,28 +13,50 @@ const a11yHidden = css`
   position: absolute;
 `;
 
-export const Main = styled.main`
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   width: 390px;
   height: 844px;
   margin: 0 auto;
+  padding: 20px;
   box-sizing: border-box;
   background-color: skyblue;
 `;
 
-export const H1 = styled.h1`
+const H1 = styled.h1`
   ${a11yHidden}
 `;
 
-export const H2 = styled.h2`
-  font-size: 30px;
+const H2 = styled.h2`
+  font-size: 20px;
   font-weight: bold;
 `;
 
-export const Form = styled.form``;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
 
-export const Section = styled.section``;
+const Section = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  /* background-color: orange; */
+`;
 
-export const Figure = styled.figure``;
-export const Image = styled.img``;
+const Figure = styled.figure``;
 
-export const Span = styled.span``;
+const Image = styled.img`
+  width: 350px;
+`;
+
+const Span = styled.span``;
+
+export { Main, H1, H2, Form, Section, Figure, Image, Span };
