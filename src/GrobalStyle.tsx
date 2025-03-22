@@ -56,12 +56,25 @@ const globalStyles = css`
 
   ${webFont}
 
+  :root {
+    --main-black: #111111;
+    --main-gray: #808080;
+    --main-lightgray: #f2f2f2;
+    --main-green: #0ebd5d;
+    --main-red: #fe0000;
+  }
+
   body {
+    width: 100vw;
+    height: 100vh;
+    color: var(--main-black);
     font-family: 'Pretendard';
   }
 
+  button,
   ul,
   li {
+    color: var(--main-black);
     font-family: 'Pretendard';
   }
 `;

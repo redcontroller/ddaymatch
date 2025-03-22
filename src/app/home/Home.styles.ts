@@ -14,16 +14,15 @@ const a11yHidden = css`
 `;
 
 const Main = styled.main`
+  width: 390px;
+  height: calc(100vh - 58px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  width: 390px;
-  height: 844px;
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
-  background-color: skyblue;
+  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
 `;
 
 const H1 = styled.h1`
@@ -31,15 +30,42 @@ const H1 = styled.h1`
 `;
 
 const H2 = styled.h2`
-  font-size: 20px;
+  font-size: 24px;
+  margin: 30px;
   font-weight: bold;
 `;
 
 const Form = styled.form`
+  width: 100%;
+  margin: 60px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+`;
+
+const StyledInput = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  padding: 10px 35px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+`;
+
+const StyledButton = styled.button`
+  width: 150px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #808080;
+  background-color: white;
+  box-shadow: 2px 2px 5px 0.1px rgba(95, 92, 92, 0.5);
 `;
 
 const Section = styled.section`
@@ -47,16 +73,22 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  /* background-color: orange; */
 `;
 
-const Figure = styled.figure``;
+const Figure = styled.figure`
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+`;
 
 const Image = styled.img`
   width: 350px;
+  height: auto;
 `;
 
-const Span = styled.span``;
+const Span = styled.span`
+  font-size: 14px;
+  margin: 10px 0;
+`;
 
-export { Main, H1, H2, Form, Section, Figure, Image, Span };
+export { Main, H1, H2, Form, StyledInput, ButtonWrapper, StyledButton, Section, Figure, Image, Span };
